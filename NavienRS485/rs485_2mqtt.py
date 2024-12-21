@@ -8,7 +8,7 @@ import json
 MQTT_USERNAME = ''
 MQTT_PASSWORD = ''
 MQTT_SERVER = ''
-MQTT_PORT = 
+MQTT_PORT = 1883
 ROOT_TOPIC_NAME = 'rs485_mqtt'
 HOMEASSISTANT_ROOT_TOPIC_NAME = 'homeassistant'
 
