@@ -5,9 +5,9 @@ from functools import reduce
 from collections import defaultdict
 import json
 
-MQTT_USERNAME = ''
-MQTT_PASSWORD = ''
-MQTT_SERVER = ''
+MQTT_USERNAME = 'cdgung'
+MQTT_PASSWORD = 'deok9313'
+MQTT_SERVER = '192.168.45.245'
 MQTT_PORT = 1883
 ROOT_TOPIC_NAME = 'rs485_mqtt'
 HOMEASSISTANT_ROOT_TOPIC_NAME = 'homeassistant'
