@@ -22,7 +22,7 @@
       "type": "Socket"
     },
     "Socket": {
-      "server": "192.168.45.154",
+      "server": "192.168.45.141",
       "port": 8899
     },
     "SocketDevice": {
