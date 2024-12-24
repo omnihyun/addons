@@ -281,13 +281,13 @@ optional_info = {'optimistic': 'false'}
 
 # 조명
 optional_info = {'optimistic': 'false'}
-조명 = wallpad.add_device(device_name='조명', device_id='0e', device_subid='1f', child_devices = ["거실1", "거실2"], device_class='light', optional_info=optional_info)
+조명 = wallpad.add_device(device_name='조명', device_id='0e', device_subid='1f', child_devices = ["거실1", "거실2", "거실3"], device_class='light', optional_info=optional_info)
 조명.register_status(message_flag='81', attr_name='power', topic_class='state_topic', regex=r'0[01](0[01])(0[01])', process_func=lambda v: 'ON' if v == '01' else 'OFF')
 조명.register_command(message_flag='41', attr_name='power', topic_class='command_topic', controll_id=['11','12'], process_func=lambda v: '01' if v == 'ON' else '00')
 
 # 난방
 optional_info = {'modes': ['off', 'heat',], 'temp_step': 1.0, 'precision': 1.0, 'min_temp': 10.0, 'max_temp': 40.0, 'send_if_off': 'false'}
-난방 = wallpad.add_device(device_name='난방', device_id='36', device_subid='1f', child_devices = ["거실", "침실", "서재"], device_class='climate', optional_info=optional_info)
+난방 = wallpad.add_device(device_name='난방', device_id='36', device_subid='1f', child_devices = ["거실", "안방", "하연", "서연", "창덕"], device_class='climate', optional_info=optional_info)
 
 for message_flag in ['81', '01', ]:
     # 0007000000141619191619
