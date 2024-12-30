@@ -283,7 +283,7 @@ optional_info = {'optimistic': 'false'}
 optional_info = {'optimistic': 'false'}
 조명 = wallpad.add_device(device_name='조명', device_id='0e', device_subid='1f', child_devices = ["거실1", "거실2", "거실3"], device_class='light', optional_info=optional_info)
 조명.register_status(message_flag='81', attr_name='power', topic_class='state_topic', regex=r'0[01](0[01])(0[01])', process_func=lambda v: 'ON' if v == '01' else 'OFF')
-조명.register_command(message_flag='41', attr_name='power', topic_class='command_topic', controll_id=['11','12'], process_func=lambda v: '01' if v == 'ON' else '00')
+조명.register_command(message_flag='41', attr_name='power', topic_class='command_topic', controll_id=['11','12','13'], process_func=lambda v: '01' if v == 'ON' else '00')
 
 # 난방
 optional_info = {'modes': ['off', 'heat',], 'temp_step': 1.0, 'precision': 1.0, 'min_temp': 10.0, 'max_temp': 40.0, 'send_if_off': 'false'}
@@ -301,9 +301,9 @@ for message_flag in ['81', '01', ]:
     난방.register_status(message_flag=message_flag, attr_name='targettemp', topic_class='temperature_state_topic', regex=r'00[0-9a-fA-F]{8}([0-9a-fA-F]{2})[0-9a-fA-F]{2}([0-9a-fA-F]{2})[0-9a-fA-F]{2}([0-9a-fA-F]{2})[0-9a-fA-F]{2}', process_func=lambda v: int(v, 16))
     
     # 난방온도 설정 커맨드
-    난방.register_command(message_flag='43', attr_name='power', topic_class='mode_command_topic', controll_id=['11','12','13'], process_func=lambda v: '01' if v == 'heat' else '00')
-    난방.register_command(message_flag='44', attr_name='targettemp', topic_class='temperature_command_topic', controll_id=['11','12','13'], process_func=lambda v: hex(int(float(v)))[2:])
-    난방.register_command(message_flag='45', attr_name='away_mode', topic_class='away_mode_command_topic', controll_id=['11','12','13'], process_func=lambda v: '01' if v =='ON' else '00')
+    난방.register_command(message_flag='43', attr_name='power', topic_class='mode_command_topic', controll_id=['11','12','13','14','15'], process_func=lambda v: '01' if v == 'heat' else '00')
+    난방.register_command(message_flag='44', attr_name='targettemp', topic_class='temperature_command_topic', controll_id=['11','12','13','14','15'], process_func=lambda v: hex(int(float(v)))[2:])
+    난방.register_command(message_flag='45', attr_name='away_mode', topic_class='away_mode_command_topic', controll_id=['11','12','13','14','15'], process_func=lambda v: '01' if v =='ON' else '00')
 
 # 엘리베이터
 optional_info = {'modes': ['down']}
