@@ -282,7 +282,7 @@ optional_info = {'optimistic': 'false'}
 # 조명
 optional_info = {'optimistic': 'false'}
 조명 = wallpad.add_device(device_name='조명', device_id='0e', device_subid='1f', child_devices = ["거실1", "거실2", "거실3"], device_class='light', optional_info=optional_info)
-조명.register_status(message_flag='81', attr_name='power', topic_class='state_topic', regex=r'04..(0[01])(0[01])(0[01])', process_func=lambda v: 'ON' if v == '01' else 'OFF')
+조명.register_status(message_flag='81', attr_name='power', topic_class='state_topic', regex=r'0400(0[01])(0[01])(0[01])', process_func=lambda v: 'ON' if v == '01' else 'OFF')
 조명.register_command(message_flag='41', attr_name='power', topic_class='command_topic', controll_id=['11','12','13'], process_func=lambda v: '01' if v == 'ON' else '00')
 
 # 난방
