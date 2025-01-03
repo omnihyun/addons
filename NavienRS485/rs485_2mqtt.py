@@ -192,9 +192,9 @@ optional_info = {'optimistic': 'false'}
 거실등전체.register_status(message_flag = '01', attr_name = 'availability', topic_class ='availability_topic', regex = r'()', process_func = lambda v: 'online')
 #침실등전체.register_status(message_flag = '01', attr_name = 'availability', topic_class ='availability_topic', regex = r'()', process_func = lambda v: 'online')
 
-거실등1.register_status(message_flag = '81', attr_name = 'power', topic_class ='state_topic', regex = r'00(0[01])0[01]0[01]', process_func = lambda v: 'ON' if v == '01' else 'OFF')
-거실등2.register_status(message_flag = '81', attr_name = 'power', topic_class ='state_topic', regex = r'000[01](0[01])0[01]', process_func = lambda v: 'ON' if v == '01' else 'OFF')
-복도등.register_status( message_flag = '81', attr_name = 'power', topic_class ='state_topic', regex = r'000[01]0[01](0[01])', process_func = lambda v: 'ON' if v == '01' else 'OFF')
+거실등1.register_status(message_flag = '81', attr_name = 'power', topic_class ='state_topic', regex = r'0400(0[01])0[01]0[01]', process_func = lambda v: 'ON' if v == '01' else 'OFF')
+거실등2.register_status(message_flag = '81', attr_name = 'power', topic_class ='state_topic', regex = r'04000[01](0[01])0[01]', process_func = lambda v: 'ON' if v == '01' else 'OFF')
+복도등.register_status( message_flag = '81', attr_name = 'power', topic_class ='state_topic', regex = r'04000[01]0[01](0[01])', process_func = lambda v: 'ON' if v == '01' else 'OFF')
 #침실등.register_status( message_flag = '81', attr_name = 'power', topic_class ='state_topic', regex = r'00(0[01])', process_func = lambda v: 'ON' if v == '01' else 'OFF')
 
 거실등1.register_status(message_flag = 'c1', attr_name = 'power', topic_class ='state_topic', regex = r'00(0[01])', process_func = lambda v: 'ON' if v == '01' else 'OFF')
