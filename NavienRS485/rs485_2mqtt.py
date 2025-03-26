@@ -267,13 +267,12 @@ for message_flag in ['81', 'c3', 'c4', 'c5']:
 창덕난방.register_command(message_flag = '44', attr_name = 'targettemp', topic_class = 'temperature_command_topic', process_func = lambda v: format(int(float(v) // 1 + float(v) % 1 * 128 * 2), '02x'))
 창덕난방.register_command(message_flag = '45', attr_name = 'away_mode', topic_class = 'away_mode_command_topic', process_func = lambda v: '01' if v =='ON' else '00')
 
-
-### 엘리베이터 ###
-# 엘리베이터, 일괄 제어 용도의 패킷이지만 엘리베이터 호출 용도로만 사용해도 무방
 optional_info = {'optimistic': 'false'}
 엘리베이터 = wallpad.add_device(device_name = '엘리베이터', device_id = '33', device_subid = '01', device_class = 'switch', optional_info = optional_info)
+
 엘리베이터.register_status(message_flag = '01', attr_name = 'power', topic_class ='state_topic', regex = r'(0[01])', process_func = lambda v: 'OFF')
 엘리베이터.register_status(message_flag = '01', attr_name = 'availability', topic_class ='availability_topic', regex = r'(0[01])', process_func = lambda v: 'online')
-엘리베이터.register_command(message_flag = '43', attr_name = 'power', topic_class = 'command_topic', process_func = lambda v: '10' if v == 'ON' else '10') # 엘리베이터 호출 # F7 33 01 43 01 10 97 16
+
+엘리베이터.register_command(message_flag = '81', attr_name = 'power', topic_class = 'command_topic', process_func = lambda v: '03 00 24 00' if v == 'ON' else '03 00 24 00') # 엘리베이터 호출 # F7 33 01 81 03 00 24 00 63 36
 
 wallpad.listen()
