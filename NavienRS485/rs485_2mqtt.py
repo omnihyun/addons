@@ -212,7 +212,7 @@ optional_info = {'optimistic': 'false', 'speed_range_min': 1, 'speed_range_max':
 optional_info = {'modes': ['off', 'heat'], 'temp_step': 0.5, 'precision': 0.5, 'min_temp': 5.0, 'max_temp': 40.0, 'send_if_off': 'false'}
 거실난방 =  wallpad.add_device(device_name = '거실 난방',   device_id = '36', device_subid = '11', device_class = 'climate', optional_info = optional_info)
 침실난방 =  wallpad.add_device(device_name = '침실 난방',   device_id = '36', device_subid = '12', device_class = 'climate', optional_info = optional_info)
-하연난방 =  wallpad.add_device(device_name = '하연 난방',   device_id = '36', device_subid = '13', device_class = 'climate', optional_info = optional_info)
+하연난방 =  wallpad.add_device(device_name = '연 난방',   device_id = '36', device_subid = '13', device_class = 'climate', optional_info = optional_info)
 서연난방 =  wallpad.add_device(device_name = '서연 난방',   device_id = '36', device_subid = '14', device_class = 'climate', optional_info = optional_info)
 창덕난방=   wallpad.add_device(device_name = '창덕 난방',   device_id = '36', device_subid = '15', device_class = 'climate', optional_info = optional_info)
 난방전체 =  wallpad.add_device(device_name = '난방 전체',   device_id = '36', device_subid = '1f', device_class = 'climate', mqtt_discovery = False, child_device = [거실난방, 침실난방, 하연난방, 서연난방, 창덕난방])
